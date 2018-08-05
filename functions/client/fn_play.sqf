@@ -17,8 +17,3 @@ cutText [" ", "BLACK IN", 3];
 _camera = "camera" camCreate (getpos player);
 _camera cameraeffect ["terminate", "back"];
 camDestroy _camera;
-"dynamicBlur" ppEffectEnable true;   
-"dynamicBlur" ppEffectAdjust [100];   
-"dynamicBlur" ppEffectCommit 0;     
-"dynamicBlur" ppEffectAdjust [0.0];  
-"dynamicBlur" ppEffectCommit 4;
