@@ -9,6 +9,17 @@ if (typeName _campos2 isEqualTo "OBJECT") then {
 	_campos2 = getPos _campos2;
 };
 
+_campos1 params ["_pos1X", "_pos1Y", "_pos1Z"];
+_campos2 params ["_pos2X", "_pos2Y", "_pos2Z"];
+
+_campos1 set [0, _pos1X + _offsetX];
+_campos1 set [1, _pos1Y + _offsetY];
+_campos1 set [2, _pos1Z + _offsetZ];
+
+_campos2 set [0, _pos2X + _offsetX];
+_campos2 set [1, _pos2Y + _offsetY];
+_campos2 set [2, _pos2Z + _offsetZ];
+
 _camera = "camera" camCreate _campos1;
 showCinemaBorder true;
 _camera cameraEffect ["internal", "BACK"];
