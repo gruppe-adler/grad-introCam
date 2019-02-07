@@ -1,3 +1,5 @@
+this is WIP @salbei and no warranties are given
+
 # grad-introCam
 
 aliascartoons intro script inspired me to a complete refactoring/rewriting.
