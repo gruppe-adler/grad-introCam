@@ -1,7 +1,11 @@
+#ifndef MODULES_DIRECTORY
+    #define MODULES_DIRECTORY modules
+#endif
+
 class GRAD_introCam {
 
     class client {
-            file = grad-introCam\functions\client;
+            file = MODULES_DIRECTORY\grad-introCam\functions\client;
 
             class camAttached;
             class camCommands;
@@ -11,7 +15,7 @@ class GRAD_introCam {
     };
 
     class server {
-            file = grad-introCam\functions\server;
+            file = MODULES_DIRECTORY\grad-introCam\functions\server;
 
             class addShot;
             class init;

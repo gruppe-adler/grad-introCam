@@ -20,7 +20,7 @@ _campos2 set [0, _pos2X + _offsetX];
 _campos2 set [1, _pos2Y + _offsetY];
 _campos2 set [2, _pos2Z + _offsetZ];
 
-_camera = "camera" camCreate _campos1;
+private _camera = "camera" camCreate _campos1;
 showCinemaBorder true;
 _camera cameraEffect ["internal", "BACK"];
 _camera camCommand "inertia on";

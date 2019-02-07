@@ -12,6 +12,7 @@
 
 
 private _definitions = [
+	/*
 	["ROTATE", 1, 180, target1, 9, 0.3, 0.1, 150, false],
 	["ATTACHED", cam2, cam3, target1, 3, 0.1, 0.1, [0,0,5]],
 	["FREE", cam4, cam5, target1, 2, 0.1, 0.1, [0,0,10]],
@@ -19,6 +20,7 @@ private _definitions = [
 	["ATTACHED", cam5, cam5, target2, 3, 0.3, 0.3, [0,0,3]],
 	["ATTACHED", cam5, cam5, target2, 5, 0.3, 0.3, [0,0,10]],
 	["ROTATE", 1, 180, target1, 9, 0.3, 0.1, 150, false]
+	*/
 ];
 
 

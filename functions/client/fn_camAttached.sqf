@@ -5,10 +5,10 @@ if (typeName _campos1 isEqualTo "OBJECT") then {
 	_campos1 = getPos _campos1;
 };
 
-_camera = "camera" camCreate _campos1;
+private _camera = "camera" camCreate _campos1;
 _camera camSetFov _zoom1;
 showCinemaBorder true;
-_camera attachTo [_campos2, [_offsetX,_offsetY,_offsetZ]];		
+_camera attachTo [_campos2, [_offsetX,_offsetY,_offsetZ]];
 _camera cameraEffect ["internal", "BACK"];
 _camera camCommand "inertia on";
 _camera camPrepareTarget _target;
