@@ -18,7 +18,7 @@ _duration = _duration* 0.01;
 
 GRAD_introCam_camAngle = _startingAngle;
 private _pos = getPos _cam;
-private _camAttachObj = "Land_InvisibleBarrier_F" createVehicleLocal _pos;
+private _camAttachObj = "HeliHEmpty" createVehicleLocal _pos;
 _camAttachObj setPos _pos;
 _cam attachTo [_camAttachObj, [0, 0, 0]];
 
