@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 params ["_cam", "_target", "_startingAngle", "_endAngle", "_duration", "_radius", ["_clockwise", true], ["_rise", 0]];
 
 GRAD_introCam_camRotateFinish = false;

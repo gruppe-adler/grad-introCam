@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 // "_campos1", "_campos2", "_target", "_duration", "_zoom1", "_zoom2", "_isAttached", ["_offset",[0,0,0]],  "_radius"
 
 
@@ -15,11 +16,8 @@ if (!isServer) exitWith {};
 
 
 private _definitions = [
-	
+
 ];
 
 /////// dont edit below
-
-{
-  	[_x] call GRAD_introCam_fnc_addShot;
-} forEach _definitions;
+[_definitions] call GRAD_introCam_fnc_addShot;

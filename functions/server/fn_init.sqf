@@ -1,15 +1,11 @@
-sleep 5;
+#include "script_component.hpp"
 
-private _multiPlier = 1;
+["CBA_loadingScreenDone", {
+    if (isNull (getAssignedCuratorLogic ace_player)) then {
+        private _waitCondition = {time > (_this + 3)};
 
-[] remoteExec ["GRAD_introCam_fnc_play", [0,-2] select isDedicated, false];
-
-setTimeMultiplier 100;
-
-sleep 40;
-
-for "_i" from 0 to 99 do {
-	setTimeMultiplier _multiPlier;
-	_multiPlier = _multiPlier - 1;
-	sleep 1;
-};
+        [_waitCondition,{
+            [] remoteExec ["GRAD_introCam_fnc_play", [0,-2] select isDedicated, false];
+        },time] call CBA_fnc_waitUntilAndExecute;
+    };
+}] call CBA_fnc_addEventHandler;

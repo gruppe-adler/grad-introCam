@@ -1,4 +1,6 @@
+#include "script_component.hpp"
 params ["_campos1", "_object", "_target1", "_target2", "_duration", "_zoom1", "_zoom2", ["_offset",[0,0,0]]];
+
 _offset params ["_offsetX", "_offsetY", "_offsetZ"];
 
 if (typeName _campos1 isEqualTo "OBJECT") then {
@@ -8,7 +10,7 @@ if (typeName _campos1 isEqualTo "OBJECT") then {
 _camera = "camera" camCreate _campos1;
 _camera camSetFov _zoom1;
 showCinemaBorder true;
-_camera attachTo [_object, [_offsetX,_offsetY,_offsetZ]];		
+_camera attachTo [_object, [_offsetX,_offsetY,_offsetZ]];
 _camera cameraEffect ["internal", "BACK"];
 _camera camCommand "inertia on";
 _camera camPrepareTarget _target1;
@@ -19,7 +21,7 @@ sleep _duration;
 /*
 _camera = "camera" camCreate (getpos _campos1);
 showCinemaBorder true;
-_camera attachTo [_object, [_x_coord,_y_coord,_z_coord]];		
+_camera attachTo [_object, [_x_coord,_y_coord,_z_coord]];
 _camera cameraEffect ["internal", "BACK"];
 _camera camCommand "inertia on";
 _camera camPrepareTarget _targetcam;
