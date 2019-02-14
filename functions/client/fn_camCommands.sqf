@@ -1,16 +1,17 @@
-// by ALIAS, modified by nomisum
-
 params ["_shot", "_index"];
 
 _shot params [
 	"_type",
 	"_start",
 	"_end",
-	"_target",
+	"_target1",
+	"_target2",
 	"_duration",
+	"_transition",
 	"_zoom1",
 	"_zoom2",
-	["_offset",[0,0,0]],
+	["_offset1",[0,0,0]],
+	["_offset2",[0,0,0]],
 	["_angle",1],
 	["_radius",100],
 	["_cclockwise", false]
@@ -27,17 +28,17 @@ if (_isLastShot) then {
 switch _type do {
 	case "FREE": {
 		// posStart, posEnd
-		[_start, _end, _target, _duration, _zoom1, _zoom2, _offset] call GRAD_introCam_fnc_camFree;
+		[_start, _end, _target1, _target2, _duration, _transition, _zoom1, _zoom2, _offset1, _offset2] call GRAD_introCam_fnc_camFree;
 	};
 
 	case "ATTACHED": {
 		// posStart, posEnd
-		[_start, _end, _target, _duration, _zoom1, _zoom2, _offset] call GRAD_introCam_fnc_camAttached;
+		[_start, _end, _target1, _target2, _duration, _transition, _zoom1, _zoom2, _offset1, _offset2] call GRAD_introCam_fnc_camAttached;
 	};
 	
 	case "ROTATE": {
 		// angleStart, angleEnd
-		[_start, _end, _target, _duration, _zoom1, _zoom2, _offset, _radius, _cclockwise] call GRAD_introCam_fnc_camRotate;
+		[_start, _end, _target1, _target2, _duration, _transition, _zoom1, _zoom2, _offset1, _offset2, _radius, _cclockwise] call GRAD_introCam_fnc_camRotate;
 	};
 	default {};
 };

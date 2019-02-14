@@ -1,5 +1,7 @@
 params ["_camShot"]; // pun intended
 
+if (!isServer) exitWith {};
+
 private _camShots = missionNamespace getVariable ["GRAD_INTROCAM_SHOTS", []];
 
 _camShots pushBack _camShot;
