@@ -53,7 +53,7 @@ if (isNil "_waitCondition") then {
             _this call GRAD_introCam_fnc_handleNextShot;
         },
         [_camShots, _camSettings, _countCamSettings, _shotNumber, _cam],
-        _duration
+        (_duration + 0.01)
     ] call CBA_fnc_waitAndExecute;
 }else{
     [

@@ -8,4 +8,8 @@ _camera camPrepareTarget _target;
 _camera camPrepareFOV _zoom;
 _camera camCommitPrepared 0;
 
+if (_blackOver) then {
+    cutText ["", "BLACK IN", _blackOverTime];
+};
+
 _camera
