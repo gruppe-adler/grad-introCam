@@ -2,14 +2,15 @@ params ["_cam", "_target", "_startingAngle", "_endAngle", "_duration", "_radius"
 
 GRAD_introCam_camRotateFinish = false;
 private _angleDistance = (_endAngle - _startingAngle) mod 360;
-private _steps = if (_clockwise) then {
-    (_angleDistance / _duration)
-}else{
-    (0-(_angleDistance / _duration))
+private _steps = _angleDistance / _duration;
+if (!_clockwise) then {
+    _steps = - _steps;
 };
 
 private _riseSteps = if (_rise != 0) then {
         (_rise / _duration)
+}else{
+    0
 };
 
 _steps = _steps* 0.01;
@@ -25,8 +26,8 @@ _cam attachTo [_camAttachObj, [0, 0, 0]];
 [
     {
         params ["_args", "_handle"];
-        _args params ["_camAttachObj", "_cam", "_target", "_steps", "_endAngle", "_duration", "_riseSteps", "_radius"];
-        if (GRAD_introCam_camAngle == _endAngle || {time > _duration}) exitWith {
+        _args params ["_camAttachObj", "_cam", "_target", "_steps", "_endAngle", "_endTime", "_riseSteps", "_radius"];
+        if (GRAD_introCam_camAngle == _endAngle || {time > _endTime}) exitWith {
             [_handle] call CBA_fnc_removePerFrameHandler;
             detach _cam;
             deleteVehicle _camAttachObj;
@@ -40,10 +41,9 @@ _cam attachTo [_camAttachObj, [0, 0, 0]];
         private _newPos = _target getPos [_radius, GRAD_introCam_camAngle];
         private _height = (getPosASL _camAttachObj) select 2;
         if (_riseSteps != 0) then {
-            _newPos set [2, (_height + (_riseSteps))];
-        }else{
-            _newPos set [2, _height];
+            _height = _height + (_riseSteps);
         };
+        _newPos set [2, _height];
 
         _camAttachObj setPosASL _newPos;
 
