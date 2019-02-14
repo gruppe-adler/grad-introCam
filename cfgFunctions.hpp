@@ -13,8 +13,8 @@ class GRAD_introCam {
             file = grad-introCam\functions\server;
 
             class addShot;
-            class init;
-            class shotDefinitions { postInit = 1; };
+            class init { postInit = 1; };
+            class shotDefinitions;
     };
 
 };

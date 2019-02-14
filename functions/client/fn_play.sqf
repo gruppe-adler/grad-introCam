@@ -1,7 +1,6 @@
 #include "script_component.hpp"
 
 private _jip = [(missionConfigFile >> "IntroCam" >> "allowForJIP"), "text", 0] call CBA_fnc_getConfigEntry;
-private _code = compile ([(missionConfigFile >> "IntroCam" >> "code"), "text", ""] call CBA_fnc_getConfigEntry);
 
 if((_jip == 0) && {didJIP}) exitWith {};
 

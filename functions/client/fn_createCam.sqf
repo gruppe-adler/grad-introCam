@@ -1,4 +1,4 @@
-params ["_pos", "_target", ["_zoom", 1], ["_showBorders", true], ["_effectCam", "internal"], ["_effectCamType", "BACK"]];
+params ["_pos", "_target", ["_zoom", 1], ["_showBorders", true], ["_blackOver", true], ["_blackOverTime", 1], ["_effectCam", "internal"], ["_effectCamType", "BACK"]];
 
 private _camera = "camera" camCreate _pos;
 showCinemaBorder _showBorders;
