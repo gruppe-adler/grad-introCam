@@ -1,21 +1,22 @@
+#ifndef MODULES_DIRECTORY
+    #define MODULES_DIRECTORY modules
+#endif
+
 class GRAD_introCam {
     class client {
-            file = grad-introCam\functions\client;
-
-            class camAttached;
-            class camFree;
-            class camRotate;
-            class createCam;
-            class handleNextShot;
-            class play;
+        file = MODULES_DIRECTORY\grad-introCam\functions\client;
+        class camAttached;
+        class camMove;
+        class camRotate;
+        class createCam;
+        class getPos;
+        class handleNextShot;
+        class play;
     };
 
     class server {
-            file = grad-introCam\functions\server;
-
-            class addShot;
-            class init { postInit = 1; };
-            class shotDefinitions;
+        file = MODULES_DIRECTORY\grad-introCam\functions\server;
+        class addShot;
+        class init { postInit = 1; };
     };
-
 };

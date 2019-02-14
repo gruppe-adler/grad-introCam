@@ -1,5 +1,9 @@
-#include "script_component.hpp"
-params ["_cam", "_target", "_startingAngle", "_endAngle", "_duration", "_radius", ["_clockwise", true], ["_rise", 0]];
+//#include "script_component.hpp"
+
+params ["_camera", "_args"];
+_args params ["", "_duration", "_target", "_startingAngle", "_endAngle", "_radius", ["_clockwise", true], ["_rise", 0]];
+
+diag_log str _this;
 
 GRAD_introCam_camRotateFinish = false;
 private _angleDistance = (_endAngle - _startingAngle) mod 360;
@@ -42,7 +46,7 @@ _cam attachTo [_camAttachObj, [0, 0, 0]];
         if (_riseSteps != 0) then {
             _height = _height + (_riseSteps);
         };
-        
+
         _newPos set [2, _height];
         _camAttachObj setPosASL _newPos;
 

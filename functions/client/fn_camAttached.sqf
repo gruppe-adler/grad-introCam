@@ -1,10 +1,20 @@
-#include "script_component.hpp"
-params ["_camera", "_object", "_target1", "_target2", "_duration", "_zoom1", "_zoom2", ["_offset",[0,0,0]]];
+//#include "script_component.hpp"
 
-_offset params ["_offsetX", "_offsetY", "_offsetZ"];
+params ["_camera", "_args"];
+_args params ["", "_duration", "_object", "_target1", "_target2", ["_zoom1", 1], ["_zoom2", 1], ["_offset",[0,0,0]]];
 
-if (typeName _campos1 isEqualTo "OBJECT") then {
-	_campos1 = getPos _campos1;
+diag_log str _this;
+
+if !(_object isEqualType []) then {
+	_object = missionNamespace getVariable [_object, -1];
+};
+
+if !(_target1 isEqualType []) then {
+	_target1 = [_target1] call GRAD_introCam_fnc_getPos;
+};
+
+if !(_target2 isEqualType []) then {
+	_target2 = [_target2] call GRAD_introCam_fnc_getPos;
 };
 
 _cam attachTo [_object, _offset];
@@ -20,6 +30,6 @@ _camera camCommitPrepared 0;
 		_camera camPrepareFOV _zoom2;
 		_camera camCommitPrepared 0;
 	},
-	[_camera, _target2, _zoom2]
+	[_camera, _target2, _zoom2],
 	_duration
 ] call CBA_fnc_waitAndExecute;
