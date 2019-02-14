@@ -6,6 +6,7 @@ class GRAD_introCam {
             class camFree;
             class camRotate;
             class createCam;
+            class handleNextShot;
             class play;
     };
 
