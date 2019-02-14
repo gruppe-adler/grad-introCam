@@ -5,6 +5,22 @@ _args params ["", "_duration", "_target", "_startingAngle", "_endAngle", "_radiu
 
 diag_log str _this;
 
+if !(_target isEqualType []) then {
+	_target = [_target] call GRAD_introCam_fnc_getPos;
+};
+
+if !(_startingAngle isEqualType 0) then {
+	_startingAngle = [_startingAngle] call GRAD_introCam_fnc_getPos;
+};
+
+if !(_endAngle isEqualType 0) then {
+	_endAngle = [_endAngle] call GRAD_introCam_fnc_getPos;
+};
+
+if !(_radius isEqualType 0) then {
+	_radius = [_radius] call GRAD_introCam_fnc_getPos;
+};
+
 GRAD_introCam_camRotateFinish = false;
 private _angleDistance = (_endAngle - _startingAngle) mod 360;
 private _steps = (_angleDistance / _duration) * 0.01;
