@@ -1,6 +1,6 @@
 params ["_cam", "_target", "_startingAngle", "_endAngle", "_duration", "_radius", ["_clockwise", true], ["_rise", 0]];
 
-GRAD_introCam_camRotateFinisch = false;
+GRAD_introCam_camRotateFinish = false;
 private _angleDistance = (_endAngle - _startingAngle) mod 360;
 private _steps = if (_clockwise) then {
     (_angleDistance / _duration)
@@ -30,9 +30,9 @@ _cam attachTo [_camAttachObj, [0, 0, 0]];
             [_handle] call CBA_fnc_removePerFrameHandler;
             detach _cam;
             deleteVehicle _camAttachObj;
-            GRAD_introCam_camRotateFinisch = true;
+            GRAD_introCam_camRotateFinish = true;
             GRAD_introCam_camAngle = nil;
-            [{GRAD_introCam_camRotateFinisch = nil;},[],1] call CBA_fnc_waitAndExecute;
+            [{GRAD_introCam_camRotateFinish = nil;},[],1] call CBA_fnc_waitAndExecute;
         };
 
         GRAD_introCam_camAngle = GRAD_introCam_camAngle + _steps;
