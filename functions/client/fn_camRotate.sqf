@@ -3,25 +3,23 @@ params ["_cam", "_target", "_startingAngle", "_endAngle", "_duration", "_radius"
 
 GRAD_introCam_camRotateFinish = false;
 private _angleDistance = (_endAngle - _startingAngle) mod 360;
-private _steps = _angleDistance / _duration;
+private _steps = (_angleDistance / _duration) * 0.01;
 if (!_clockwise) then {
     _steps = - _steps;
 };
 
 private _riseSteps = if (_rise != 0) then {
-        (_rise / _duration)
+    ((_rise / _duration) * 0.01)
 }else{
     0
 };
 
-_steps = _steps* 0.01;
-_riseSteps = _riseSteps* 0.01;
 _duration = _duration* 0.01;
 
 GRAD_introCam_camAngle = _startingAngle;
-private _pos = getPos _cam;
+private _pos = getPosASL _cam;
 private _camAttachObj = "HeliHEmpty" createVehicleLocal _pos;
-_camAttachObj setPos _pos;
+_camAttachObj setPosASL _pos;
 _cam attachTo [_camAttachObj, [0, 0, 0]];
 
 [
@@ -44,8 +42,8 @@ _cam attachTo [_camAttachObj, [0, 0, 0]];
         if (_riseSteps != 0) then {
             _height = _height + (_riseSteps);
         };
+        
         _newPos set [2, _height];
-
         _camAttachObj setPosASL _newPos;
 
     },

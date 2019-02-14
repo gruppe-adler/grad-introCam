@@ -3,9 +3,9 @@
 
 	SHOT TYPES:
 
-	["FREE", pos1, pos2, target, duration, fov1, fov2, offset (optional)],
-	["ATTACHED", pos1, pos2, target, duration, fov1, fov2, offset (optional)],
-	["ROTATE", angleStart, angleEnd, target, duration, fov1, fov2, radius (int), clockwise (bool)]
+	["MOVE", pos1, pos2, target1, target2, duration, fov1, fov2, offset (optional)],
+	["ATTACH", pos1, pos2, target1, target2, duration, fov1, fov2, offset (optional)],
+	["ROTATE", startingAngle, endAngle, target, "", duration, "", "", "", "", "", "", radius, clockwise (optional), rise (optional)]
 
 * CAM PARAMETERS:
 * Positions <OBJECT / POSITION>

@@ -13,11 +13,11 @@ params [
 	"_offset2"
 ];
 
-if (typeName _camPos1 isEqualTo "OBJECT") then {
+if (_camPos1 isEqualType "OBJECT") then {
 	_camPos1 = getPosASL _camPos1;
 };
 
-if (typeName _camPos2 isEqualTo "OBJECT") then {
+if (_camPos2 isEqualType "OBJECT") then {
 	_camPos2 = getPosASL _camPos2;
 };
 
