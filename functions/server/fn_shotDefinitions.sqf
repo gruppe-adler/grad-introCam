@@ -14,10 +14,13 @@
 
 if (!isServer) exitWith {};
 
+private _shotDefinitions = [
 
-private _definitions = [
+];
+
+private _cameraDefinitions = [
 
 ];
 
 /////// dont edit below
-[_definitions] call GRAD_introCam_fnc_addShot;
+[_shotDefinitions, _cameraDefinitions] call GRAD_introCam_fnc_addShot;

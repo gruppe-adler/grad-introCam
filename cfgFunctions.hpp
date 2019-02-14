@@ -3,12 +3,10 @@ class GRAD_introCam {
             file = grad-introCam\functions\client;
 
             class camAttached;
-            class camCommands;
             class camFree;
             class camRotate;
-            class marchStart;
+            class createCam;
             class play;
-            class textEffects;
     };
 
     class server {
