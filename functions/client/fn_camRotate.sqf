@@ -1,7 +1,7 @@
 //#include "script_component.hpp"
 
 params ["_camera", "_args"];
-_args params ["", "_duration", "_target", "_startingAngle", "_endAngle", "_radius", ["_clockwise", true], ["_rise", 0]];
+_args params ["", "_duration", "_target", "_startingAngle", "_endAngle", "_radius", ["_clockwise", 1], ["_rise", 0]];
 
 if !(_target isEqualType []) then {
 	_target = [_target] call GRAD_introCam_fnc_getPos;
@@ -20,17 +20,27 @@ if !(_radius isEqualType 0) then {
 };
 
 GRAD_introCam_camRotateFinish = false;
-private _angleDistance = (_endAngle - _startingAngle) mod 360;
-private _steps = (_angleDistance / _duration) * 0.01;
-if (!_clockwise) then {
-    _steps = - _steps;
+
+private _angleDistance = _endAngle - _startingAngle;
+if (_clockwise == 1) then {
+	if (_endAngle < _startingAngle) then {
+		_angleDistance = 360 - _startingAngle + _endAngle;
+	};
+}else{
+	if (_endAngle > _startingAngle) then {
+	   _angleDistance = (360 - _endAngle) + _startingAngle;
+   };
 };
+
+private _steps = (_angleDistance / _duration) * 0.01;
 
 private _riseSteps = if (_rise != 0) then {
     ((_rise / _duration) * 0.01)
 }else{
     0
 };
+
+diag_log format ["ROTATE: Dura: %1, Start: %2, End: %3, Distanze: %4, Steps: %5", _duration, _startingAngle, _endAngle, _angleDistance, _steps];
 
 _duration = _duration* 0.01;
 
