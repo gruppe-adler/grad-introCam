@@ -6,6 +6,7 @@ if (count _camShots == 0) exitWith {
     _cam cameraEffect ["terminate","back"];
     camDestroy _cam;
     missionNamespace setVariable ["GRAD_INTROCAM_DONE", true];
+    STHud_UIMode = 1;
 };
 
 private _waitCondition = nil;

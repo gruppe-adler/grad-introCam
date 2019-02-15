@@ -3,8 +3,6 @@
 params ["_camera", "_args"];
 _args params ["", "_duration", "_target", "_startingAngle", "_endAngle", "_radius", ["_clockwise", true], ["_rise", 0]];
 
-diag_log str _this;
-
 if !(_target isEqualType []) then {
 	_target = [_target] call GRAD_introCam_fnc_getPos;
 };

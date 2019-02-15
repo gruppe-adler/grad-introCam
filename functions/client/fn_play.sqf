@@ -4,7 +4,7 @@ private _jip = [(missionConfigFile >> "introCam" >> "allowForJIP"), "text", 0] c
 
 if((_jip == 0) && {didJIP}) exitWith {};
 
-//STHud_UIMode = 0;
+STHud_UIMode = 0;
 
 private _camShots = missionNamespace getVariable ["GRAD_INTROCAM_SHOTS", []];
 private _cam = "";

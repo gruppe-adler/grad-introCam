@@ -4,9 +4,9 @@
 
 	SHOT TYPES:
 
-	["MOVE", pos1, pos2, target1, target2, duration, fov1, fov2, offset (optional)],
-	["ATTACH", pos1, pos2, target1, target2, duration, fov1, fov2, offset (optional)],
-	["ROTATE", startingAngle, endAngle, target, "", duration, "", "", "", "", "", "", radius, clockwise (optional), rise (optional)]
+	["MOVE", duration, pos, target, fov (optional), offset (optional), commitTime (optional)],
+	["ATTACH", duration, pos1, pos2, target1, target2, duration, fov1, fov2, offset (optional)],
+	["ROTATE", duration, target, startingAngle, endAngle, "", duration, "", "", "", "", "", "", radius, clockwise (optional), rise (optional)]
 
 * CAM PARAMETERS:
 * Positions <OBJECT / POSITION>
@@ -23,7 +23,7 @@
 private _shotDefinitions = [(missionConfigFile >> "introCam" >> "shotDefinitions"), "Array", []] call CBA_fnc_getConfigEntry;
 
 if (_shotDefinitions isEqualTo []) exitWith {};
-diag_log format ["Shots: %1", _shotDefinitions];
+
 [_shotDefinitions] call GRAD_introCam_fnc_addShot;
 
 if (([(missionConfigFile >> "introCam" >> "playOnStart"), "Number", 1] call CBA_fnc_getConfigEntry) == 1) then {
