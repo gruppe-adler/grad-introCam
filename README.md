@@ -28,15 +28,14 @@ You can add as many as you like. There are currently three different camera type
 
 Blending between sceens is also an Option:
 
-`["BLEND",  duration, textType, blendOut (optional), blendIn (optional)]`
+`["BLEND",  duration, textType (optional), blendOut (optional), blendIn (optional)]`
 
-DURATION <NUMBER>
-
-TEXTTYPE <ARRAY>
-
-BLENDOUT <NUMBER>
-
-BLENDIN <NUMBER>
+| NAME  | TYPE  |  DESCRIPTION |
+|---|---|---|
+| DURATION  | NUMBER  |  Time the effect lasts |
+| TEXTTYPE  | ARRAY (optional)  |  Type of Text to show |
+| BLENDOUT  | NUMBER (optional)  |  Time for blend out effect |
+| BLENDIN  | NUMBER (optional)  |  Time for blend in effect |
 
 Possible text types:
 
