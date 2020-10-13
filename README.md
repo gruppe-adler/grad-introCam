@@ -2,7 +2,7 @@
 
 ### Features
 - Quickcreation of shots
--
+- 
 -
 -
 -
@@ -27,9 +27,19 @@ You can add as many as you like. There are currently three different camera type
 
 
 Blending between sceens is also an Option:
+
 `["BLEND",  duration, textType, blendOut (optional), blendIn (optional)]`
 
+DURATION <NUMBER>
+
+TEXTTYPE <ARRAY>
+
+BLENDOUT <NUMBER>
+
+BLENDIN <NUMBER>
+
 Possible text types:
+
 "PLAIN"
 
 Parameters: https://community.bistudio.com/wiki/BIS_fnc_textTiles

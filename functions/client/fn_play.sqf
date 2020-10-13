@@ -1,13 +1,14 @@
-//#include "script_component.hpp"
+#include "script_component.hpp"
 
-private _jip = [(missionConfigFile >> "introCam" >> "allowForJIP"), "text", 0] call CBA_fnc_getConfigEntry;
+private _jip = [(missionConfigFile >> "missionSettings" >> "userIntro" >> "allowForJIP"), "text", 0] call CBA_fnc_getConfigEntry;
 
 if((_jip == 0) && {didJIP}) exitWith {};
 
 STHud_UIMode = 0;
+diwako_dui_main_toggled_off = true;
 
 private _camShots = missionNamespace getVariable ["GRAD_INTROCAM_SHOTS", []];
-private _cam = "";
+private _cam = objNull;
 
 private _first = _camShots select 0;
 if ((_first select 0) == "CAMERA") then {

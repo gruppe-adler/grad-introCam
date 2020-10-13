@@ -1,4 +1,4 @@
-//#include "script_component.hpp"
+#include "script_component.hpp"
 
 params ["_camShots", "_cam"];
 
@@ -7,6 +7,7 @@ if (count _camShots == 0) exitWith {
     camDestroy _cam;
     missionNamespace setVariable ["GRAD_INTROCAM_DONE", true];
     STHud_UIMode = 1;
+    diwako_dui_main_toggled_off = false;
 };
 
 private _waitCondition = nil;

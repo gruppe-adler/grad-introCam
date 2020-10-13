@@ -1,4 +1,4 @@
-//#include "script_component.hpp"
+#include "script_component.hpp"
 
 params ["", "", "_pos", "_target", ["_zoom", 1], ["_showBorders", "true"], ["_fade", ""], ["_fadeTime", 1], ["_fadeText", ""], ["_effectCam", "internal"], ["_effectCamType", "BACK"]];
 
