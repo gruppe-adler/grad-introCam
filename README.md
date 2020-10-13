@@ -1,13 +1,13 @@
 # grad-introCam
 
-### Features
+## Features
 - Quickcreation of shots
 - 
 -
 -
 -
 
-# How To
+## How To
 1. Put grad-introCam in your node_modules folder.
 
 2. Include cfgFunctions in your description.ext like this
@@ -19,14 +19,14 @@ class cfgFunctions {
 
 3. Add cam shot definitions to USER\userIntro.hpp
 
-You can add as many as you like. There are currently three different camera types:
+### You can add as many as you like. There are currently three different camera types:
 "FREE" - moves between two points
 "ATTACHED" - moves along with a vehicle/unit
 "ROTATE" - rotates around a point/unit/vehicle
 
 
 
-Blending between sceens is also an Option:
+### Blending between sceens is also an Option:
 
 `["BLEND",  duration, textType (optional), blendOut (optional), blendIn (optional)]`
 
