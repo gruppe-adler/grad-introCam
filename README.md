@@ -20,8 +20,11 @@ class cfgFunctions {
 3. Add cam shot definitions to USER\userIntro.hpp
 
 ### You can add as many as you like. There are currently three different camera types:
+
 "FREE" - moves between two points
+
 "ATTACHED" - moves along with a vehicle/unit
+
 "ROTATE" - rotates around a point/unit/vehicle
 
 
