@@ -30,6 +30,9 @@ switch (_type) do {
     	[_cam, _nextShot] call GRAD_introCam_fnc_camRotate;
         _waitCondition = {(!(isNil "GRAD_introCam_camRotateFinish") && {GRAD_introCam_camRotateFinish})};
     };
+    case "BLEND": {
+        [_nextShot] call GRAD_introCam_fnc_blend;
+    };
     default {};
 };
 

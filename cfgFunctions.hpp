@@ -5,6 +5,7 @@
 class GRAD_introCam {
     class client {
         file = MODULES_DIRECTORY\grad-introCam\functions\client;
+        class blend;
         class camAttached;
         class camMove;
         class camRotate;
