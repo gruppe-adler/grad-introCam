@@ -40,33 +40,33 @@ class cfgFunctions {
 | BLENDOUT  | NUMBER (optional)  |  Time for blend out effect |
 | BLENDIN  | NUMBER (optional)  |  Time for blend in effect |
 
-Possible text types:
+#### Possible text types:
 
-"PLAIN"
+#### "PLAIN"
 
 Parameters: https://community.bistudio.com/wiki/BIS_fnc_textTiles
 
 ![](https://community.bistudio.com/wikidata/images/thumb/2/24/BIS_fnc_textTiles.gif/400px-BIS_fnc_textTiles.gif)
 
-"DYNAMIC"
+#### "DYNAMIC"
 
 Parameters: https://community.bistudio.com/wiki/BIS_fnc_dynamicText
 
 ![](https://community.bistudio.com/wikidata/images/thumb/2/22/BIS_fnc_dynamicText_v2.gif/400px-BIS_fnc_dynamicText_v2.gif)
 
-"TYPETEXT"
+#### "TYPETEXT"
 
 Parameters: https://community.bistudio.com/wiki/BIS_fnc_typeText
 
 ![](https://community.bistudio.com/wikidata/images/thumb/f/fe/BIS_fnc_typeText.gif/400px-BIS_fnc_typeText.gif)
 
-"TYPETEXT2"
+#### "TYPETEXT2"
 
 Parameters: https://community.bistudio.com/wiki/BIS_fnc_typeText2
 
 ![](https://community.bistudio.com/wikidata/images/thumb/e/e3/BIS_fnc_typeText2.gif/400px-BIS_fnc_typeText2.gif)
 
-"INFOTEXT"
+#### "INFOTEXT"
 
 Parameters: https://community.bistudio.com/wiki/BIS_fnc_infoText
 
