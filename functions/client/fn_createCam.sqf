@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ["", "", "_pos", "_target", ["_zoom", 1], ["_showBorders", true], ["_fade", ""], ["_fadeTime", 1], ["_fadeText", ""], ["_effectCam", "internal"], ["_effectCamType", "BACK"]];
+params ["", "", "_pos", "_target", ["_zoom", 1], ["_showBorders", true], ["_fade", false], ["_fadeTime", 1], ["_fadeText", ""], ["_effectCam", "internal"], ["_effectCamType", "BACK"]];
 
 if ((typeName _pos) isEqualTo "OBJECT") then {
     _pos = getPos _pos;
@@ -20,8 +20,8 @@ _camera camSetPos _pos;
 _camera camSetTarget _target;
 _camera camCommit 0;
 
-if (_fade != "") then {
-    cutText [_fadeText, _fade, _fadeTime];
+if (_fade) then {
+    cutText [_fadeText, "BLACK IN", _fadeTime];
 };
 
 _camera

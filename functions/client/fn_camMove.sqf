@@ -20,8 +20,6 @@ if (_commitTime < 0) then {
 	_commitTime = _duration;
 };
 
-systemChat format ["Commit: %1, Duration: %2", _commitTime, _duration];
-
 // pos 2 - where camera is moving next - target2
 _camera camSetPos _camPos;
 _camera camSetTarget _target;

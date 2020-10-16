@@ -1,8 +1,4 @@
-params ["", "", ["_titleText", []], ["_blendOut", -1], ["_blendIn", -1]];
-
-systemChat "BLEND";
-systemChat str _this;
-systemChat format ["               %1, %2, %3", _titleText, _blendOut, _blendIn];
+params ["", "_duration", ["_titleText", []], ["_blendOut", -1], ["_blendIn", -1]];
 
 if (_blendOut >= 0) then {
     cutText ["", "BLACK OUT", _blendOut];
@@ -11,7 +7,7 @@ if (_blendOut >= 0) then {
 };
 
 [{
-	params ["_titleText", "_blendIn"];
+	params ["_titleText", "_blendIn", "_blendOut", "_duration"];
 	_titleText params ["_titleTextType"];
 
 	switch (_titleTextType) do {
@@ -20,9 +16,14 @@ if (_blendOut >= 0) then {
 			_text call BIS_fnc_titleText;
 		};
 		case "DYNAMIC": {
-			_titleText params ["", "_text", "_x", "_y", "_duration", "_fadeInTime", "_deltaY", "_rscLayer"];
+			_titleText params ["", "_text", ["_x", -1], ["_y", -1], ["_duration", 4], ["_fadeInTime", 1], ["_deltaY", 0], ["_rscLayer", -1]];
 
-			[_text, _x, _y, _duration, _fadeInTime, _deltaY, _rscLayer] spawn BIS_fnc_dynamicText;
+			if (_rscLayer > 0) then {
+				[_text, _x, _y, _duration, _fadeInTime, _deltaY, _rscLayer] spawn BIS_fnc_dynamicText;
+			} else {
+				[_text, _x, _y, _duration, _fadeInTime, _deltaY] spawn BIS_fnc_dynamicText;
+			};
+			
 		};
 		case "TYPETEXT": {
 			_titleText params ["", "_text"];
@@ -38,12 +39,20 @@ if (_blendOut >= 0) then {
 			_titleText params ["", "_text"];
 			[_text ] spawn BIS_fnc_infoText;
 		};
+		default {};
 	};
 
 	if (_blendIn >= 0) then {
-		cutText ["", "BLACK OUT", _blendIn];
-	} else {
-		_blendIn = 0;
+		[
+			{
+				params ["_blendIn"];
+
+				cutText ["", "BLACK IN", _blendIn];
+			},
+			[_blendIn],
+			(_duration - _blendIn - _blendOut)
+		] call CBA_fnc_waitAndExecute;
+		
 	};
 
-}, [_titleText, _blendIn], _blendOut] call CBA_fnc_waitAndExecute;
+}, [_titleText, _blendIn, _blendOut, _duration], _blendOut] call CBA_fnc_waitAndExecute;

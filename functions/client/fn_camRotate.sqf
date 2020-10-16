@@ -1,28 +1,12 @@
 //#include "script_component.hpp"
 
 params ["_camera", "_args"];
-_args params ["", "_duration", "_target", "_startingAngle", "_endAngle", "_radius", ["_clockwise", 1], ["_rise", 0]];
-
-if !(_target isEqualType []) then {
-	_target = [_target] call GRAD_introCam_fnc_getPos;
-};
-
-if !(_startingAngle isEqualType 0) then {
-	_startingAngle = [_startingAngle] call GRAD_introCam_fnc_getPos;
-};
-
-if !(_endAngle isEqualType 0) then {
-	_endAngle = [_endAngle] call GRAD_introCam_fnc_getPos;
-};
-
-if !(_radius isEqualType 0) then {
-	_radius = [_radius] call GRAD_introCam_fnc_getPos;
-};
+_args params ["", "_duration", "_target", ["_height", 5], ["_radius", 10], ["_startingAngle", 0], ["_endAngle", 180], ["_clockwise", true], ["_rise", false]];
 
 GRAD_introCam_camRotateFinish = false;
 
 private _angleDistance = _endAngle - _startingAngle;
-if (_clockwise == 1) then {
+if (_clockwise) then {
 	if (_endAngle < _startingAngle) then {
 		_angleDistance = 360 - _startingAngle + _endAngle;
 	};
@@ -33,22 +17,21 @@ if (_clockwise == 1) then {
 };
 
 private _steps = (_angleDistance / _duration) * 0.01;
-
-private _riseSteps = if (_rise != 0) then {
+private _riseSteps = if (_rise) then {
     ((_rise / _duration) * 0.01)
 }else{
     0
 };
 
-diag_log format ["ROTATE: Dura: %1, Start: %2, End: %3, Distanze: %4, Steps: %5", _duration, _startingAngle, _endAngle, _angleDistance, _steps];
-
 _duration = _duration* 0.01;
 
 GRAD_introCam_camAngle = _startingAngle;
-private _pos = getPosASL _cam;
+private _pos = (_target getPos [_radius, _startingAngle]) vectorAdd [0,0, _height];
 private _camAttachObj = "HeliHEmpty" createVehicleLocal _pos;
-_camAttachObj setPosASL _pos;
-_cam attachTo [_camAttachObj, [0, 0, 0]];
+_camAttachObj setPos _pos;
+_camera attachTo [_camAttachObj, [0, 0, 0]];
+_camera camSetTarget _target;
+_camera camCommit 0;
 
 [
     {
@@ -76,5 +59,5 @@ _cam attachTo [_camAttachObj, [0, 0, 0]];
 
     },
     0.01,
-    [_camAttachObj, _cam, _target, _steps, _endAngle, (time + (_duration * 100) + 0.1), _riseSteps, _radius]
+    [_camAttachObj, _camera, _target, _steps, _endAngle, (time + (_duration * 100) + 0.1), _riseSteps, _radius]
 ]call CBA_fnc_addPerFrameHandler;

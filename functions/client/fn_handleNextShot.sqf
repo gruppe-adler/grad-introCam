@@ -32,7 +32,8 @@ switch (_type) do {
         _waitCondition = {(!(isNil "GRAD_introCam_camRotateFinish") && {GRAD_introCam_camRotateFinish})};
     };
     case "BLEND": {
-        [_nextShot] call GRAD_introCam_fnc_blend;
+        _nextShot call GRAD_introCam_fnc_blend;
+        _duration = _duration - (_nextShot select 5);
     };
     default {};
 };
