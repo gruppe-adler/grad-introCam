@@ -12,17 +12,15 @@ _args params [
 ];
 
 if !(_camPos isEqualType []) then {
-	_camPos = [_camPos] call GRAD_introCam_fnc_getPos;
-};
-
-if !(_target isEqualType []) then {
-	_target = [_target] call GRAD_introCam_fnc_getPos;
+	_camPos = getPos _camPos;
 };
 
 _camPos = _camPos vectorAdd _offset;
 if (_commitTime < 0) then {
 	_commitTime = _duration;
 };
+
+systemChat format ["Commit: %1, Duration: %2", _commitTime, _duration];
 
 // pos 2 - where camera is moving next - target2
 _camera camSetPos _camPos;

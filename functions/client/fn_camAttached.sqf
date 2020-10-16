@@ -3,12 +3,8 @@
 params ["_camera", "_args"];
 _args params ["", "_duration", "_object", "_target",["_zoom", 1], ["_offset",[0,0,0]]];
 
-if !(_object isEqualType objNull) then {
-	_object = missionNamespace getVariable [_object, -1];
-};
-
-if !(_target isEqualType []) then {
-	_target = [_target] call GRAD_introCam_fnc_getPos;
+if (_target isEqualType objNull) then {
+	_target = getPos _target;
 };
 
 _camera attachTo [_object, _offset];

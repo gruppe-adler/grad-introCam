@@ -1,5 +1,9 @@
 params ["", "", ["_titleText", []], ["_blendOut", -1], ["_blendIn", -1]];
 
+systemChat "BLEND";
+systemChat str _this;
+systemChat format ["               %1, %2, %3", _titleText, _blendOut, _blendIn];
+
 if (_blendOut >= 0) then {
     cutText ["", "BLACK OUT", _blendOut];
 } else {
