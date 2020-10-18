@@ -4,7 +4,7 @@
 - Quickcreation of shots
 - Simple usage of Camera system
 
-
+Demo: https://github.com/gruppe-adler/CO_introCamTest.Altis
 
 
 
