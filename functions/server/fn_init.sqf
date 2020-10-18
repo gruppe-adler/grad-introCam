@@ -3,6 +3,8 @@
 if !(isServer) exitWith {};
 
 [] call compile preprocessFileLineNumbers "USER\userIntro.sqf";
+if (isNil "GRAD_introCam_playOnStart") then {GRAD_introCam_playOnStart = false};
+if (isNil "GRAD_introCam_allowForJIP") then {GRAD_introCam_allowForJIP = false};
 
 if (GRAD_introCam_shotDefinitions isEqualTo []) exitWith {};
 

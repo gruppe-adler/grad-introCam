@@ -33,7 +33,9 @@ switch (_type) do {
     };
     case "BLEND": {
         _nextShot call GRAD_introCam_fnc_blend;
-        _duration = _duration - (_nextShot select 5);
+        if (count _nextShot > 5) then {
+            _duration = _duration - (_nextShot select 5);
+        };
     };
     default {};
 };
