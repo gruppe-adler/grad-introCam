@@ -1,7 +1,7 @@
 //#include "script_component.hpp"
 
 params ["_camera", "_args"];
-_args params ["", "_duration", "_target", ["_height", 5], ["_radius", 10], ["_startingAngle", 0], ["_endAngle", 180], ["_clockwise", true], ["_rise", false]];
+_args params ["", "_duration", "_target", ["_height", 5], ["_radius", 10], ["_startingAngle", 0], ["_endAngle", 180], ["_clockwise", true], ["_rise", 0]];
 
 GRAD_introCam_camRotateFinish = false;
 
@@ -17,7 +17,7 @@ if (_clockwise) then {
 };
 
 private _steps = (_angleDistance / _duration) * 0.01;
-private _riseSteps = if (_rise) then {
+private _riseSteps = if (_rise != 0) then {
     ((_rise / _duration) * 0.01)
 }else{
     0
