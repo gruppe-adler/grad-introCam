@@ -5,6 +5,7 @@
 class GRAD_introCam {
     class client {
         file = MODULES_DIRECTORY\grad-introCam\functions\client;
+        class blackOnLoad { postInit = 1; };
         class blend;
         class camAttached;
         class camMove;
