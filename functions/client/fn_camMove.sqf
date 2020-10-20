@@ -6,7 +6,7 @@ _args params [
 	"_duration",
 	"_camPos",
 	"_target",
-	["_zoom", 1],
+	["_zoom", 0.75],
 	["_offset", [0,0,0]],
 	["_commitTime", -1]
 ];

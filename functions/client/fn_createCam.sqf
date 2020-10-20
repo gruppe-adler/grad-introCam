@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ["", "", "_pos", "_target", ["_zoom", 1], ["_showBorders", true], ["_fade", false], ["_fadeTime", 1], ["_fadeText", ""], ["_effectCam", "internal"], ["_effectCamType", "BACK"]];
+params ["", "", "_pos", "_target", ["_zoom", 0.75], ["_showBorders", true], ["_fade", false], ["_fadeTime", 1], ["_fadeText", ""], ["_effectCam", "internal"], ["_effectCamType", "BACK"]];
 
 if ((typeName _pos) isEqualTo "OBJECT") then {
     _pos = getPos _pos;
