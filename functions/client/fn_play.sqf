@@ -1,19 +1,23 @@
-// dont display for JIP
-if (didJIP) exitWith {};
+#include "script_component.hpp"
 
-waitUntil {time > 0};
+params ["_camShots", ["_jip", true]];
 
-cutText ["INTRO DEMO MISSION", "BLACK IN", 10];
+if(_jip && {didJIP}) exitWith {};
 
-private _shots = missionNamespace getVariable ["GRAD_INTROCAM_SHOTS", []];
+STHud_UIMode = 0;
+diwako_dui_main_toggled_off = true;
 
-private _count = count _shots;
-{
-  	[_x, _forEachIndex] call GRAD_introCam_fnc_camCommands;
-} forEach _shots;
+private _cam = objNull;
 
+private _first = _camShots select 0;
+_first params ["_type", "_duration"];
 
-cutText [" ", "BLACK IN", 3];
-_camera = "camera" camCreate (getpos player);
-_camera cameraeffect ["terminate", "back"];
-camDestroy _camera;
+if (_type== "CAMERA") then {
+    _cam = _first call GRAD_introCam_fnc_createCam;
+    _camShots deleteAt 0;
+}else{
+    _cam = [[0,0,2],[0,0,0]] call GRAD_introCam_fnc_createCam;
+    _duration = 0;
+};
+
+[{_this call GRAD_introCam_fnc_handleNextShot;}, [_camShots, _cam], _duration] call CBA_fnc_waitAndExecute;
