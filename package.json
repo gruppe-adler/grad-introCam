@@ -6,7 +6,8 @@
     "type": "git",
     "url": "git+https://github.com/gruppe-adler/grad-introCam.git"
   },
-  "author": "Salbei, nomisum",
+  "author": "Salbei",
+  "contributor": "nomisum",
   "bugs": {
     "url": "https://github.com/gruppe-adler/grad-introCam/issues"
   },
